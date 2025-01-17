@@ -75,10 +75,6 @@ export class CdkStack extends cdk.Stack {
     // API Gateway for todo list
     const todo_api = new apigateway.RestApi(this, "todo_api", {
       restApiName: "Todo Service",
-      defaultCorsPreflightOptions: {
-        allowOrigins: apigateway.Cors.ALL_ORIGINS,
-        allowMethods: apigateway.Cors.ALL_METHODS, // this is also the default
-      },
     })
 
     // Define the '/todo' resource with GET and POST methods
