@@ -3,19 +3,23 @@ import TaskRow from "./TaskRow";
 import TaskEdit from "./TaskEdit";
 import { useEffect, useState } from "react";
 import Task from "../types/types";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "../store/store";
+import { setTasks } from "../store/taskSlice";
 
 export default function TaskList() {
   // const tasks = [{ detail: "Finish the project", date: "2023-10-03", priority: Priority.LOW }];
-  const [tasks, setTasks] = useState<Task[]>([])
-  const apiUrl = import.meta.env.VITE_API_URL || "something";
+  const tasks = useSelector((state: RootState) => state.tasks.tasks)
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
+    const apiUrl = import.meta.env.VITE_API_URL || "something";
     fetch(apiUrl, { method: "GET" })
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        setTasks(data)
+        dispatch(setTasks(data))
       })
-  }, [])
+  }, [dispatch])
 
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [taskToEdit, setTaskToEdit] = useState<Task | null>(null);

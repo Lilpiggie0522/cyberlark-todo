@@ -1,8 +1,9 @@
 export default class Task {
-  public todo_id: string
+  public todo_id?: string
   public detail: string
   public due_date: string
   public priority: Priority
+  public status: boolean
 
   constructor(
     todo_id: string,
@@ -14,6 +15,7 @@ export default class Task {
     this.detail = detail
     this.due_date = due_date
     this.priority = priority
+    this.status = false
   }
 }
 
