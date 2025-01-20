@@ -1,6 +1,6 @@
 # Here is the link
 
-- [piggie-todo-list](http://piggie-todo-list.s3-website-ap-southeast-2.amazonaws.com)
+[piggie-todo-list](http://piggie-todo-list.s3-website-ap-southeast-2.amazonaws.com)
 
 # React + TypeScript + Vite
 
